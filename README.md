@@ -26,19 +26,19 @@ sudo adduser grader
 
 ##### Step 4: Update sshd_config so that users can login using a password
 
-1. Open sshd_config to edit in nano
+* Open sshd_config to edit in nano
 
 ```
 sudo nano /etc/ssh/sshd_config
 ```
 
-1. Allow password authentication (change "no" to "yes" around line 54)
+* Allow password authentication (change "no" to "yes" around line 54)
 
 ```
 PasswordAuthentication yes
 ```
 
-1. Restart for change to go through
+* Restart for change to go through
 
 ```
 sudo restart ssh
@@ -47,19 +47,19 @@ sudo restart ssh
 
 ##### Step 5: Give grader the permission to sudo
 
-1. Copy default user file (90-cloud-init-users) and save as "grader"
+* Copy default user file (90-cloud-init-users) and save as "grader"
 
 ```
 sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader
 ```
 
-2. Open the new file to edit in nano
+* Open the new file to edit in nano
 
 ```
 sudo nano /etc/sudoers.d/grader
 ```
 
-3. Make minor edit to file (change "ubuntu" to "grader") like so:
+* Make minor edit to file (change "ubuntu" to "grader") like so:
 
 ```
 grader ALL=(ALL) NOPASSWD:ALL
@@ -74,13 +74,13 @@ sudo apt-get upgrade
 
 ##### Step 7: Change SSH port from 22 to 2200
 
-1. Once again, open sshd_config to edit in nano
+* Once again, open sshd_config to edit in nano
 
 ```
 sudo nano /etc/ssh/sshd_config
 ```
 
-2. Modify the following line
+* Modify the following line
 
 ```
 # What ports, IPs and protocols we listen for
@@ -113,13 +113,13 @@ sudo apt-get install apache2
 
 ##### Step 10: Install mod_wsgi
 
-1. Install mod_wsgi
+* Install mod_wsgi
 
 ```
 sudo apt-get install libapache2-mod-wsgi
 ```
 
-2. Configure Apache to handle requests using the WSGI modeule
+* Configure Apache to handle requests using the WSGI modeule
 
 Open the the /etc/apache2/sites-enabled/000-default.conf file for editing
 
@@ -133,7 +133,7 @@ Add the following line at the end of the <VirtualHost *:80> block, right before 
 WSGIScriptAlias / /var/www/html/myapp.wsgi
 ```
 
-3. Restart Apache
+* Restart Apache
 
 ```
 sudo apache2ctl restart
