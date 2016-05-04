@@ -9,7 +9,7 @@ This is my fifth and final of a series of projects through Udacity's **Full Stac
 
 ## Set-Up Instructions:
 
-### Step 1: I created an instance of Ubuntu using Amazon Web Services EC3 (Check out this guide for instructions: [Getting Started with Amazon EC2 Linux Instances](https://raw.githubusercontent.com/ferristocrat/udacity_frontend_p5_neighborhood-map/master/images/screenshot.PNG "Getting Started with Amazon EC2 Linux Instances"))
+##### Step 1: I created an instance of Ubuntu using Amazon Web Services EC3 (Check out this guide for instructions: [Getting Started with Amazon EC2 Linux Instances](https://raw.githubusercontent.com/ferristocrat/udacity_frontend_p5_neighborhood-map/master/images/screenshot.PNG "Getting Started with Amazon EC2 Linux Instances"))
 
 In the process of creating the Ubuntu instance, you will be prompted to create a private key.  Create a private key, and save it to ~/.ssh folder (in the example I name the file udacity_p4.pem) for use in logging into the server.
 
@@ -32,13 +32,13 @@ sudo adduser grader
 sudo nano /etc/ssh/sshd_config
 ```
 
-2. Allow password authentication (change "no" to "yes" around line 54)
+1. Allow password authentication (change "no" to "yes" around line 54)
 
 ```
 PasswordAuthentication yes
 ```
 
-3. Restart for change to go through
+1. Restart for change to go through
 
 ```
 sudo restart ssh
