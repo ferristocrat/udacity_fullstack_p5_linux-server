@@ -84,7 +84,7 @@ sudo nano /etc/ssh/sshd_config
 
 ```
 # What ports, IPs and protocols we listen for
-Port 22 <---change port to what you need it to be
+Port 2200 <---change port to 2200
 ```
 
 
