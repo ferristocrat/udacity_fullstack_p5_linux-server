@@ -24,7 +24,27 @@ ssh -i ~/.ssh/udacity_p4.pem ubuntu@ec2-52-87-241-179.compute-1.amazonaws.com
 sudo adduser grader
 ```
 
-##### Step 4: Update sshd_config so that users can login using a password
+##### Step 4: Give grader the permission to sudo
+
+* Copy default user file (90-cloud-init-users) and save as "grader"
+
+```
+sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader
+```
+
+* Open the new file to edit in nano
+
+```
+sudo nano /etc/sudoers.d/grader
+```
+
+* Make minor edit to file (change "ubuntu" to "grader") like so:
+
+```
+grader ALL=(ALL) NOPASSWD:ALL
+```
+
+##### Step 5: Update sshd_config so that users can login using a password
 
 * Open sshd_config to edit in nano
 
@@ -43,26 +63,6 @@ PasswordAuthentication yes
 ```
 sudo restart ssh
 
-```
-
-##### Step 5: Give grader the permission to sudo
-
-* Copy default user file (90-cloud-init-users) and save as "grader"
-
-```
-sudo cp /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/grader
-```
-
-* Open the new file to edit in nano
-
-```
-sudo nano /etc/sudoers.d/grader
-```
-
-* Make minor edit to file (change "ubuntu" to "grader") like so:
-
-```
-grader ALL=(ALL) NOPASSWD:ALL
 ```
 
 ##### Step 6: Update all currently installed packages
@@ -104,6 +104,14 @@ Ensure the firewall was set up correctly by typing the following command
 ```
 sudo ufw status
 ```
+
+##### Step 9: Configure the local timezone to UTC
+
+Open the timezone selection tool
+```
+sudo dpkg-reconfigure tzdata
+```
+Choose "None of the above" then "UTC"
 
 ##### Step 9: Install and configure Apache to serve a Python mod_wsgi application
 
